@@ -1,0 +1,24 @@
+{
+  "name": "lostcarfound",
+  "version": "1.0.0",
+  "description": "This is your README. READMEs are where you can communicate what your project is and how to use it.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuj99/lostcarfound.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anuj99/lostcarfound/issues"
+  },
+  "homepage": "https://github.com/anuj99/lostcarfound#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "kue": "^0.11.6",
+    "redis": "^3.0.2"
+  }
+}
