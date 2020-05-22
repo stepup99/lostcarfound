@@ -4,6 +4,7 @@
   "description": "This is your README. READMEs are where you can communicate what your project is and how to use it.",
   "main": "server.js",
   "scripts": {
+    "watch": "nodemon ./server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "kue": "^0.11.6",
+    "nodemon": "^2.0.4",
     "redis": "^3.0.2"
   }
 }
