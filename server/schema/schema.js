@@ -15,6 +15,22 @@ const Ownerschema = new Schema({
     }
 })
 
+const Policeschema = new Schema({
+    name: {
+        type: String
+    },
+    status: {
+        type: String
+    },
+    carownerinfo: {
+        id: String,
+        caronwername: String,
+        lostplace: String
+    }
+});
+
+
 module.exports = {
-    carowner: mongoose.model('carowner', Ownerschema)
+    carowner: mongoose.model('carowner', Ownerschema),
+    police: mongoose.model('police', Policeschema)
 }

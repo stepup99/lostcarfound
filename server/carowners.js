@@ -1,6 +1,7 @@
 const express = require('express');
-
 const router = express.Router();
+let kue = require(`kue`);
+let queue = kue.createQueue();
 
 
 
@@ -14,7 +15,6 @@ try {
     });
 
     router.post('/', (req, res) => {
-        console.log(req.body);
         const newCarOwner = new carowner({
             name: req.body.name,
             description: req.body.description,
@@ -24,6 +24,25 @@ try {
 
         newCarOwner.save().then(item => {
             res.json(item);
+            const { _id, name, lostplace } = item;
+            let job = queue.create(`fir`, {
+                _id,
+                name,
+                lostplace
+            }).save(function (err) {
+                if (!err) console.log(`inside error fn ${job.id}`);
+            });
+
+
+            job.on(`enqueue`, function () {
+                console.log(`Job Submitted in the Queue. with job id is ${job.id}`);
+                console.log('object is ');
+                console.log(job.type);
+                console.log(job.data);
+            });
+
+
+
         });
     });
 } catch (error) {
