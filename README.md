@@ -1,6 +1,10 @@
-# Welcome to GitHub Desktop!
+# Welcome to Lost and Found case registory
 
-This is your README. READMEs are where you can communicate what your project is and how to use it.
+there are three pages 
+1. Admin - where we will see all the victims who lost their car .
+2. police - there are 4 police who are actually working on someone's victim case.
+3. carwoner - where you can seee there case status and of that perticular victim and any one can also register an Fir there .
 
-Write your name on line 6, save it, and then head back to GitHub Desktop.
-anuj
+# Technical stuffs
+
+1. using kue on node js to hold all the cases which are filing by the victims on their lost car.
