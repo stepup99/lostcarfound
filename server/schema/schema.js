@@ -10,6 +10,9 @@ const Ownerschema = new Schema({
     lostplace: {
         type: String
     },
+    mobile: {
+        type: String
+    },
     status: {
         type: String
     }

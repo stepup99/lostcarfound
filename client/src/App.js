@@ -1,4 +1,5 @@
 import React from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Police from './components/police';

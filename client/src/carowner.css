@@ -1,3 +1,8 @@
-.centerElm{
-    margin:50px auto;
+.formElm{
+    width:20%;
+    margin:0 auto;
+}
+
+.adjust-left{
+    margin-top:10px;
 }

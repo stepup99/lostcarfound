@@ -7,11 +7,19 @@ let queue = kue.createQueue();
 
 const carowner = require('./schema/schema.js').carowner;
 try {
-    router.get('/', (req, res) => {
-        res.json("hye ter");
-        // Carowner.find().then(item => {
-        //     res.json(item);
-        // });
+    router.get('/:mobile', (req, res) => {
+
+        let mobile = req.params.mobile;
+        // console.log("mobile data------------");
+        // console.log(mobile);
+        // res.json(mobile);
+        carowner.find({ mobile }, function (err, data) {
+            if (err) {
+                res.send(err)
+                return;
+            }
+            res.send(data);
+        })
     });
 
     router.post('/', (req, res) => {
@@ -19,7 +27,8 @@ try {
             name: req.body.name,
             description: req.body.description,
             lostplace: req.body.lostplace,
-            status: req.body.status
+            status: "pending",
+            mobile: req.body.mobile
         });
 
         newCarOwner.save().then(item => {

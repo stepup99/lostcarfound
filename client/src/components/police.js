@@ -6,7 +6,7 @@ class Police extends Component {
             <div>
                 <h1> dashboard</h1>
                 <span>police officer Deepanshu</span>
-                <table className="centerElm">
+                {/* <table className="centerElm">
                     <tr>
                         <th>Assigned by</th>
                         <th>No. of cases handeling (3) and Status</th>
@@ -24,7 +24,7 @@ class Police extends Component {
                         <td>resolved</td>
                     </tr>
 
-                </table>
+                </table> */}
             </div>
         )
     }
