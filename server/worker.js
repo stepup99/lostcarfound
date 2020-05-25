@@ -9,7 +9,7 @@ const tryFunc = async () => {
             // console.log(response.data.length)
             response.data.map(item => {
 
-                if (item.status == 'resolved') {
+                if (item.status == 'Resolved') {
                     queue.process('fir', function (job, done) {
                         ArrReassign.push(job.data);
                         if (ArrReassign.length > 0) {

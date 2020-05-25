@@ -28,6 +28,14 @@ try {
 
     });
 
+
+    router.put('/resolve/:id', (req, res) => {
+        const id = req.params.id;
+        police.findByIdAndUpdate({ _id: id }, { $set: { status: "Resolved" } }, { new: true }).then((item) => {
+            res.json(item);
+        });
+    });
+
     router.post('/', (req, res) => {
         const Police = new police({
             name: req.body.name,
