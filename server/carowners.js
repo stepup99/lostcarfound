@@ -7,6 +7,17 @@ let queue = kue.createQueue();
 
 const carowner = require('./schema/schema.js').carowner;
 try {
+
+
+    router.get('/', async (req, res) => {
+        carowner.find().then(item => {
+            res.json(item);
+        });
+    });
+
+
+
+
     router.get('/:mobile', (req, res) => {
 
         let mobile = req.params.mobile;
@@ -20,6 +31,13 @@ try {
             }
             res.send(data);
         })
+    });
+
+    router.put('/resolve/:id', (req, res) => {
+        const id = req.params.id;
+        carowner.findByIdAndUpdate({ _id: id }, { $set: { status: "Resolved" } }, { new: true }).then((item) => {
+            res.json(item);
+        });
     });
 
     router.post('/', (req, res) => {

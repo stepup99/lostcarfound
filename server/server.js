@@ -2,6 +2,8 @@ const express = require('express');
 const redis = require('redis');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+// const socket = require('socket.io');
+// const global = require('./global.js');
 const app = express();
 const client = redis.createClient(6379, '127.0.0.1');
 const mongoose = require('mongoose');
@@ -17,6 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors());
 // npm run watch
+
+
 
 client.on('connect', function () {
     console.log("redis connected")
@@ -40,9 +44,22 @@ const func = async () => {
     app.use('/api/police', police);
 
 
-    app.listen(PORT, (req, res) => {
+    let server = app.listen(PORT, (req, res) => {
         console.log(`it is listening @ ${PORT}`);
     });
+
+    // let io = socket(server)
+
+    // Initiate as object
+
+
+    // global.io = require('socket.io').listen(server);
+
+    // io.on('connection', function (socket) {
+    //     console.log("made socket connection");
+    // })
+
+
 
     schedule.scheduleJob('*/30 * * * * *', async function () {
         console.log("the time is --------------- >>>>>>>>   " + new Date());
@@ -54,3 +71,5 @@ const func = async () => {
 }
 
 func();
+
+

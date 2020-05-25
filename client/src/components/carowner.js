@@ -29,7 +29,8 @@ class Carowner extends Component {
                 loading: true
             });
             const getData = await Axios.get(`http://localhost:5000/api/carowner/${mobile}`);
-            let carownerinfo = getData.data[0]
+
+            let carownerinfo = getData.data[0];
             this.setState({
                 carownerProp: carownerinfo
             })
@@ -45,6 +46,8 @@ class Carowner extends Component {
                     renderInfoStatus: false
                 });
             }
+
+
         } else {
             alert("please enter the 10 digit mobile no.");
         }
@@ -61,7 +64,12 @@ class Carowner extends Component {
 
     render() {
         let mybutton = null;
-        mybutton = this.state.renderInfoStatus ? <Carownerinfo mobile={this.state.carownerProp} /> : "";
+        if (this.state.carownerProp === "no data found") {
+            alert("no data found")
+        } else {
+            mybutton = this.state.renderInfoStatus ? <Carownerinfo mobile={this.state.carownerProp} /> : "";
+        }
+
         return (
             <div>
                 <form className="formElm" onSubmit={(e) => this.submitFN(e)}>

@@ -19,13 +19,9 @@ try {
             caronwername: name,
             lostplace: lostplace
         }
-
         police.findByIdAndUpdate({ _id: id }, { $set: { carownerinfo, status: "Inprogress" } }, { new: true }).then((item) => {
             res.json(item);
         });
-
-
-
     });
 
 

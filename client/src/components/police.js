@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
+// import openSocket from 'socket.io-client';
 
+// const socket = openSocket('http://localhost:5000', { transports: ['websocket', 'polling'] });
+// socket.on('inprogress', function (data) {
+//     console.log(data);
+// })
 class Police extends Component {
+
     state = {
         police: [],
         loading: false
     }
+
+
 
     async componentDidMount() {
         this.setState(
@@ -26,16 +34,18 @@ class Police extends Component {
 
     }
 
-    resolveFn = async (data) => {
+    resolveFn = async (policedataid, victimdataid) => {
 
-        const updateStatus = await Axios.put(`http://localhost:5000/api/police/resolve/${data}`);
+        await Axios.put(`http://localhost:5000/api/police/resolve/${policedataid}`);
+        await Axios.put(`http://localhost:5000/api/carowner/resolve/${victimdataid}`);
+
 
         window.location.reload()
     }
-    checkfn = (data) => {
+    checkfn = (data, victim) => {
         if (data.status == "Inprogress") {
             return (
-                < button type="submit" className="btn btn-primary" onClick={() => this.resolveFn(data._id)}>Resolve</button>
+                < button type="submit" className="btn btn-primary" onClick={() => this.resolveFn(data._id, victim)}>Resolve</button>
             )
         } else {
             return "--";
@@ -44,13 +54,16 @@ class Police extends Component {
 
     }
     render() {
+        setInterval(() => {
+            window.location.reload()
+        }, 10000);
         const itemdata = this.state.police.map((item, index) => {
             return (<tr key={index}>
                 <td>{item.name}</td>
                 <td>{item.status}</td>
                 <td>{(item.carownerinfo !== undefined) ? item.carownerinfo.caronwername : ""}</td>
                 <td>{(item.carownerinfo !== undefined) ? item.carownerinfo.lostplace : ""}</td>
-                <td>{this.checkfn(item)}</td>
+                <td>{this.checkfn(item, item.carownerinfo.id)}</td>
             </tr >)
         })
         return (
