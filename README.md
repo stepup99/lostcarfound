@@ -9,7 +9,7 @@ there are three pages
 0. npm install all the dependencies , 
 1. using kue on node js to hold all the cases which are filing by the victims on their lost car and put them in queue .
 2. queue is managed by redis so we need to start redis before starting the server.js file , so when police is not holding any case so redis is going to assign a new cases which is filled by the victim.
-3. while resolving the "resolve" button police is updating the status of its own and victim status to resolve simultaniously.
+3. while clicking the "resolve" button police is going to update the status of its own and victim status to resolve simultaniously.
 4. there are two files client reactjs running on 3000 and server nodejs running on 5000 and they are connected to each for api services
 5. redis for queue is connected on 6379 port number
 6. all the data of police and victims are hosted on mongodb website
