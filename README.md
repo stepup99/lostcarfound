@@ -13,3 +13,4 @@ there are three pages
 4. there are two files client reactjs running on 3000 and server nodejs running on 5000 and they are connected to each for api services
 5. redis is connected on 6379 port number
 6. all the data of police and victims are hosted on mongodb website
+7. for starting the server need to run this command "npm run dev"
