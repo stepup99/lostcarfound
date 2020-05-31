@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import '../carownerinfo.css';
 import Axios from 'axios';
+import CONSTANTS from '../config';
 
 class Admin extends Component {
     state = {
@@ -23,7 +24,9 @@ class Admin extends Component {
             }
         )
         console.log(this.state.carowner);
-
+        console.log("--------constants--------");
+        console.log(CONSTANTS);
+        console.log("--------constants--------");
 
     }
 
