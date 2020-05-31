@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
-
+import CONSTANTS from '../config';
 class Filefirform extends Component {
 
 
@@ -24,7 +24,7 @@ class Filefirform extends Component {
             datainfo.description = this.state.description;
             datainfo.lostplace = this.state.lostplace;
             datainfo.name = this.state.name;
-            const postData = await Axios.post(`http://localhost:5000/api/carowner`, datainfo);
+            const postData = await Axios.post(`http://${CONSTANTS.BACKEND_PRIVATE_IP_ADDRESS}/api/carowner`, datainfo);
             console.log(postData);
             if (postData.status == 200) {
                 console.log("i m inside");

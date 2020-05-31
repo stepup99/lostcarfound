@@ -3,6 +3,7 @@ import '../carowner.css';
 import Axios from 'axios';
 import Carownerinfo from './carownerinfo';
 import Filefirform from './filefirform';
+import CONSTANTS from '../config';
 class Carowner extends Component {
     state = {
         mobile: "",
@@ -28,7 +29,7 @@ class Carowner extends Component {
             this.setState({
                 loading: true
             });
-            const getData = await Axios.get(`http://localhost:5000/api/carowner/${mobile}`);
+            const getData = await Axios.get(`http://${CONSTANTS.BACKEND_PRIVATE_IP_ADDRESS}/api/carowner/${mobile}`);
 
             let carownerinfo = getData.data[0];
             this.setState({

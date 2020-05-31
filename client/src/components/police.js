@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
+import CONSTANTS from '../config';
 // import openSocket from 'socket.io-client';
 
 // const socket = openSocket('http://localhost:5000', { transports: ['websocket', 'polling'] });
@@ -21,7 +22,7 @@ class Police extends Component {
                 loading: true
             }
         )
-        let getPolice = await Axios.get('http://localhost:5000/api/police')
+        let getPolice = await Axios.get(`http://${CONSTANTS.BACKEND_PRIVATE_IP_ADDRESS}/api/police`)
         // console.log(getPolice);
         this.setState(
             {
