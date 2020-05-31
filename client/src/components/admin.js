@@ -14,7 +14,7 @@ class Admin extends Component {
                 loading: true
             }
         )
-        let getCarowner = await Axios.get('http://127.0.0.1:5000/api/carowner')
+        let getCarowner = await Axios.get('http://18.236.152.96:5000/api/carowner')
         console.log(getCarowner);
         this.setState(
             {
