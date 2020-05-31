@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const dbInfo = require("./config");
 const carowner = require('./carowners');
 const police = require('./polices');
+const contants_ip = require('../config_ip/config_const');
 
 const schedule = require('node-schedule');
 const shelljs = require('shelljs');
@@ -26,7 +27,7 @@ client.on('connect', function () {
     console.log("redis connected")
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 const func = async () => {
     await mongoose.connect(dbInfo.dburl, {
@@ -45,7 +46,7 @@ const func = async () => {
 
 
     let server = app.listen(PORT, (req, res) => {
-        console.log(`it is listening @ ${PORT}`);
+        console.log(`it is listening @ ${PORT} and ip is ${contants_ip.APP_PRIVATE_IP_ADDRESS}`);
     });
 
     // let io = socket(server)
