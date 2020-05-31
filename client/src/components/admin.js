@@ -15,7 +15,7 @@ class Admin extends Component {
                 loading: true
             }
         )
-        let getCarowner = await Axios.get(`http://${BACKEND_PRIVATE_IP_ADDRESS}/api/carowner`)
+        let getCarowner = await Axios.get(`http://${CONSTANTS.BACKEND_PRIVATE_IP_ADDRESS}/api/carowner`)
 
         this.setState(
             {
