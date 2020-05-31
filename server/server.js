@@ -47,7 +47,7 @@ const func = async () => {
     app.use('/api/police', police);
 
 
-    let server = app.listen(PORT, (req, res) => {
+    let server = app.listen(PORT, '127.0.0.1', (req, res) => {
         console.log(`it is listening @ ${PORT} and ip is ${contants_ip.APP_PRIVATE_IP_ADDRESS}`);
     });
 
