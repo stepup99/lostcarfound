@@ -15,18 +15,14 @@ class Admin extends Component {
                 loading: true
             }
         )
-        let getCarowner = await Axios.get('http://18.236.152.96:5000/api/carowner')
-        console.log(getCarowner);
+        let getCarowner = await Axios.get(`http://${BACKEND_PRIVATE_IP_ADDRESS}/api/carowner`)
+
         this.setState(
             {
                 carowner: getCarowner.data,
                 loading: false
             }
         )
-        console.log(this.state.carowner);
-        console.log("--------constants--------");
-        console.log(CONSTANTS);
-        console.log("--------constants--------");
 
     }
 
