@@ -22,7 +22,7 @@ app.use(cors());
 // npm run watch
 
 app.get('/', (req, res) => {
-    req.send('hye it is running')
+    res.send('hye it is running')
 })
 
 client.on('connect', function () {
