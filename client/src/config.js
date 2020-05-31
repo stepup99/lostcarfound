@@ -1,5 +1,5 @@
 const CONSTANTS = {
-    "BACKEND_PRIVATE_IP_ADDRESS": "127.0.0.1:5000"
+    "BACKEND_PRIVATE_IP_ADDRESS": "localhost:5000"
 }
 
 export default CONSTANTS;
